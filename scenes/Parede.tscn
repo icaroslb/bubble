@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://l2hh7ks7ls0h"]
+
+[ext_resource type="Script" path="res://scripts/Parede.gd" id="1_1os7d"]
+[ext_resource type="PackedScene" uid="uid://hb17yb32oj28" path="res://scenes/Sujeira.tscn" id="2_hj03f"]
+
+[node name="Parede" type="Node2D"]
+script = ExtResource("1_1os7d")
+packed_sujeira = ExtResource("2_hj03f")

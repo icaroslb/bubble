@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://hb17yb32oj28"]
+
+[ext_resource type="Script" path="res://scripts/Sujeira.gd" id="1_bkjl6"]
+
+[node name="Sujeira" type="Node2D" node_paths=PackedStringArray("poligonos")]
+script = ExtResource("1_bkjl6")
+poligonos = [NodePath("Polygon2D")]
+qtd_lados_circulo = 20
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 45, 0, 45, 45, 0, 45)
