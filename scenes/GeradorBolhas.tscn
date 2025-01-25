@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dxwh2nwif7xkt"]
+[gd_scene load_steps=3 format=3 uid="uid://dxwh2nwif7xkt"]
 
 [ext_resource type="Script" path="res://scripts/GeradorBolhas.gd" id="1_kmtnx"]
+[ext_resource type="PackedScene" uid="uid://imqsadolpg8h" path="res://scenes/Bolha.tscn" id="2_gswfe"]
 
-[node name="GeradorBolhas" type="Node2D"]
+[node name="GeradorBolhas" type="Node"]
 script = ExtResource("1_kmtnx")
+cena_bolha = ExtResource("2_gswfe")

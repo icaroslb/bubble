@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://r53ep7rlbpk3"]
+
+[ext_resource type="PackedScene" uid="uid://l2hh7ks7ls0h" path="res://scenes/Parede.tscn" id="1_cyccb"]
+[ext_resource type="PackedScene" uid="uid://dxwh2nwif7xkt" path="res://scenes/GeradorBolhas.tscn" id="2_qsgtc"]
+[ext_resource type="PackedScene" uid="uid://dcm2ngappludb" path="res://scenes/Desenho.tscn" id="3_kt068"]
+
+[node name="Fase" type="Node2D"]
+
+[node name="Parede" parent="." instance=ExtResource("1_cyccb")]
+
+[node name="GeradorBolhas" parent="." instance=ExtResource("2_qsgtc")]
+
+[node name="Desenho" parent="." instance=ExtResource("3_kt068")]

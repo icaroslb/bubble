@@ -19,7 +19,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func _input(event: InputEvent) -> void:
-	if (event is InputEventMouseButton && event.get_button_index() == MOUSE_BUTTON_LEFT && event.is_pressed()):
-		for sujeira in sujeiras:
-			sujeira.remover_sujeira_em_bolha(event.global_position, 50)
+#func _input(event: InputEvent) -> void:
+#	if (event is InputEventMouseButton && event.get_button_index() == MOUSE_BUTTON_LEFT && event.is_pressed()):
+#		for sujeira in sujeiras:
+#			sujeira.remover_sujeira_em_bolha(event.global_position, 50)

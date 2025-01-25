@@ -44,15 +44,14 @@ animations = [{
 }]
 
 [node name="Bolha" type="Node2D" node_paths=PackedStringArray("simbolo", "animacao")]
-position = Vector2(500, 500)
 script = ExtResource("1_et18k")
 sprites_simbolos = Array[CompressedTexture2D]([ExtResource("2_dnah5"), ExtResource("3_cxhtb"), ExtResource("1_qlcum"), ExtResource("5_1w5ub")])
 simbolo = NodePath("Sprite2D")
 animacao = NodePath("AnimatedSprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(18, 18)
+scale = Vector2(3, 3)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(25, 25)
+scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_20kkm")

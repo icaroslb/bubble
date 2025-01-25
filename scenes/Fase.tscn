@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://r53ep7rlbpk3"]
+
+[ext_resource type="Script" path="res://scripts/Fase.gd" id="1_3fh81"]
+[ext_resource type="PackedScene" uid="uid://l2hh7ks7ls0h" path="res://scenes/Parede.tscn" id="1_cyccb"]
+[ext_resource type="PackedScene" uid="uid://dxwh2nwif7xkt" path="res://scenes/GeradorBolhas.tscn" id="2_qsgtc"]
+[ext_resource type="Script" path="res://addons/gesture_recognizer/scripts/ControlGesture.gd" id="3_q6ibw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sptxq"]
+size = Vector2(1152, 648)
+
+[node name="Fase" type="Node2D" node_paths=PackedStringArray("desenhos")]
+script = ExtResource("1_3fh81")
+desenhos = NodePath("Gesture")
+
+[node name="Parede" parent="." instance=ExtResource("1_cyccb")]
+
+[node name="GeradorBolhas" parent="." instance=ExtResource("2_qsgtc")]
+
+[node name="Gesture" type="Area2D" parent="."]
+script = ExtResource("3_q6ibw")
+
+[node name="Area2D" type="CollisionShape2D" parent="Gesture"]
+position = Vector2(576, 324)
+shape = SubResource("RectangleShape2D_sptxq")
+
+[connection signal="gesture_name" from="Gesture" to="." method="atualizou_nome"]
+[connection signal="on_draw_exit" from="Gesture" to="." method="classificar"]

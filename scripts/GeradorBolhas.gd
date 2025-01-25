@@ -1,12 +1,19 @@
-extends Node2D
+extends Node
 
 @export var tempo_geracao: float
+@export var cena_bolha: PackedScene
 
-# Called when the node enters the scene tree for the first time.
+var largura: float = 1102
+
 func _ready() -> void:
-	pass # Replace with function body.
+	gerar_bolha()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func gerar_bolha():
+	var nova_bolha: Bolha = cena_bolha.instantiate()
+	
+	nova_bolha.mudar_posicao(Vector2(randf_range(50, 1102), 660))
+	add_child(nova_bolha)
+	
+	tempo_geracao = randf_range(0.5, 3.5)
+	get_tree().create_timer(tempo_geracao).timeout.connect(gerar_bolha)
