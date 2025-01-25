@@ -43,6 +43,7 @@ func remover_sujeira_em_bolha(centro: Vector2, raio: float) -> void:
 			for novos_pontos_poligono in novos_pontos_poligonos:
 				var novo_poligono := Polygon2D.new()
 				novo_poligono.polygon = novos_pontos_poligono
+				novo_poligono.color = poligono.color
 				poligonos.append(novo_poligono)
 				add_child(novo_poligono)
 			

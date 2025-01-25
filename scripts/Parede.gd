@@ -1,5 +1,7 @@
 extends Node
 
+class_name Parede
+
 @export var packed_sujeira: PackedScene
 var sujeiras: Array[Sujeira]
 const largura_sujeira: float = 45
@@ -16,8 +18,10 @@ func _ready() -> void:
 			sujeiras.append(nova_sujeira)
 			add_child(nova_sujeira)
 
-func _process(delta: float) -> void:
-	pass
+func estourar_bolhas(bolhas: Array) -> void:
+	for bolha in bolhas:
+		for sujeira in sujeiras:
+			sujeira.remover_sujeira_em_bolha(bolha.global_position, 50)
 
 #func _input(event: InputEvent) -> void:
 #	if (event is InputEventMouseButton && event.get_button_index() == MOUSE_BUTTON_LEFT && event.is_pressed()):

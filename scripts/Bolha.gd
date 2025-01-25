@@ -6,13 +6,15 @@ class_name Bolha
 @export var simbolo: Sprite2D
 @export var animacao: AnimatedSprite2D
 
+signal estourou
+
 
 var x_inicial: float
 var amplitude: float
 var velocidade: float
 var contador: float = 0.0
 
-var nome_simbolo: String
+var nome_simbolo: String = "V"
 
 func _ready() -> void:
 	var textura_excolhida: CompressedTexture2D = sprites_simbolos.pick_random()
@@ -34,7 +36,8 @@ func _process(delta: float) -> void:
 	global_position = Vector2(x_inicial + (sin(contador) * amplitude), global_position.y + (velocidade * delta))
 	
 	if (global_position.y < -15):
-		queue_free()
+		estourar()
 
-func explodir():
-	pass
+func estourar():
+	estourou.emit(self)
+	queue_free()

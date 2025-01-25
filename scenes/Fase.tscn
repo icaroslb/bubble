@@ -8,9 +8,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sptxq"]
 size = Vector2(1152, 648)
 
-[node name="Fase" type="Node2D" node_paths=PackedStringArray("desenhos")]
+[node name="Fase" type="Node2D" node_paths=PackedStringArray("desenhos", "gerador_bolhas", "parede")]
 script = ExtResource("1_3fh81")
 desenhos = NodePath("Gesture")
+gerador_bolhas = NodePath("GeradorBolhas")
+parede = NodePath("Parede")
 
 [node name="Parede" parent="." instance=ExtResource("1_cyccb")]
 
@@ -18,6 +20,7 @@ desenhos = NodePath("Gesture")
 
 [node name="Gesture" type="Area2D" parent="."]
 script = ExtResource("3_q6ibw")
+ClassifyGesture = true
 
 [node name="Area2D" type="CollisionShape2D" parent="Gesture"]
 position = Vector2(576, 324)
