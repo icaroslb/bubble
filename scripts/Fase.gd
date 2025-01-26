@@ -18,9 +18,10 @@ func _ready() -> void:
 	centralizar_pontuacao()
 
 func _process(delta: float) -> void:
-	pontucao += delta
-	texto_pontucao.text = str(floor(pontucao))
-	centralizar_pontuacao()
+	if (is_playing):
+		pontucao += delta
+		texto_pontucao.text = str(floor(pontucao))
+		centralizar_pontuacao()
 
 func centralizar_pontuacao() -> void:
 	texto_pontucao.position.x = 576 - (texto_pontucao.size.x / 2)
@@ -36,7 +37,7 @@ func _input(event: InputEvent) -> void:
 		if (event.keycode >= KEY_A && event.keycode <= KEY_Z):
 			id_simbolo = char(event.keycode)
 			
-			var bolhas: Array = gerador_bolhas.obter_bolhas(id_simbolo)
+			var bolhas: Array[BolhaData] = gerador_bolhas.obter_bolhas(id_simbolo)
 			if (bolhas):
 				var mais_tempo: float = parede.estourar_bolhas(bolhas)
 				

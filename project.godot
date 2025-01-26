@@ -15,6 +15,10 @@ run/main_scene="res://scenes/Fase.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+ControladorSom="*res://scenes/ControladorSom.tscn"
+
 [input]
 
 ui_click_right_mouse={

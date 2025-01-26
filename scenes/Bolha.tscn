@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://imqsadolpg8h"]
+[gd_scene load_steps=9 format=3 uid="uid://imqsadolpg8h"]
 
 [ext_resource type="Script" path="res://scripts/Bolha.gd" id="1_et18k"]
 [ext_resource type="Texture2D" uid="uid://goxdf0w0vtge" path="res://sprites/bolha_map.png" id="1_i4t6h"]
+[ext_resource type="AudioStream" uid="uid://bxl14cyohwjon" path="res://sounds/BolhaEstouro.mp3" id="3_qe8k0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_huksa"]
 atlas = ExtResource("1_i4t6h")
@@ -39,8 +40,9 @@ animations = [{
 "speed": 4.0
 }]
 
-[node name="Bolha" type="Node2D" node_paths=PackedStringArray("simbolo", "animacao")]
+[node name="Bolha" type="Node2D" node_paths=PackedStringArray("som", "simbolo", "animacao")]
 script = ExtResource("1_et18k")
+som = NodePath("AudioStreamPlayer")
 simbolo = NodePath("Sprite2D")
 animacao = NodePath("AnimatedSprite2D")
 
@@ -50,3 +52,7 @@ scale = Vector2(3, 3)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_20kkm")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_qe8k0")
+volume_db = -10.0

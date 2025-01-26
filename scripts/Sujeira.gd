@@ -28,12 +28,12 @@ func _ready() -> void:
 
 func aumentar_sujeira() -> void:
 	for p in poligonos:
-		var sujeira_crescida: PackedVector2Array = Geometry2D.offset_polygon(p.polygon, 5)[0]
+		var sujeira_crescida: PackedVector2Array = Geometry2D.offset_polygon(p.polygon, randf_range(5, 10))[0]
 		var sujerias_geradas := Geometry2D.intersect_polygons(pontos_iniciais, sujeira_crescida)[0]
 		
 		p.polygon = sujerias_geradas
 		
-	var next_time: float = randf_range(5.5, 20.5)
+	var next_time: float = randf_range(5.5, 10.5)
 	
 	get_tree().create_timer(next_time).timeout.connect(aumentar_sujeira)
 

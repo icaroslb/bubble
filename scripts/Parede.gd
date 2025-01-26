@@ -18,11 +18,11 @@ func _ready() -> void:
 			sujeiras.append(nova_sujeira)
 			add_child(nova_sujeira)
 
-func estourar_bolhas(bolhas: Array) -> float:
+func estourar_bolhas(bolhas: Array[BolhaData]) -> float:
 	var valor_estourado = 0.0
 	
-	for bolha: Bolha in bolhas:
+	for bolha: BolhaData in bolhas:
 		for sujeira in sujeiras:
-			valor_estourado += sujeira.remover_sujeira_em_bolha(bolha.global_position, 50 * bolha.scale.x)
+			valor_estourado += sujeira.remover_sujeira_em_bolha(bolha.posicao, 50 * bolha.escala)
 	
 	return valor_estourado

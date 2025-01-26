@@ -6,8 +6,6 @@ class_name GeradorBolhas
 @export var cena_bolha: PackedScene
 @export var sprites_simbolos: Array[CompressedTexture2D]
 
-var semaforo: Mutex = Mutex.new()
-
 var dicionario_bolhas: Dictionary = {
 	"A": [],
 	"B": [],
@@ -60,15 +58,19 @@ func gerar_bolha() -> void:
 	
 	nova_bolha.estourou.connect(bolha_estorou)
 	
-	tempo_geracao = randf_range(0.5, 2.5)
+	tempo_geracao = randf_range(0.5, 1.5)
 	get_tree().create_timer(tempo_geracao).timeout.connect(gerar_bolha)
 
-func obter_bolhas(nome_bolhas: StringName) -> Array:
-	var copia: Array = []
+func obter_bolhas(nome_bolhas: StringName) -> Array[BolhaData]:
+	var copia: Array[BolhaData] = []
 	
 	if (dicionario_bolhas.get(nome_bolhas)):
-		for b in dicionario_bolhas.get(nome_bolhas):
-			copia.append(b)
+		for bolha: Bolha in dicionario_bolhas.get(nome_bolhas):
+			var nova_data: BolhaData = BolhaData.new()
+			nova_data.posicao = bolha.global_position
+			nova_data.escala = bolha.scale.x
+			
+			copia.append(nova_data)
 	
 	return copia
 
@@ -77,15 +79,11 @@ func estourar_bolhas(nome_bolhas: StringName) -> void:
 		var bolhas_estourar: Array = dicionario_bolhas.get(nome_bolhas)
 	
 		if (bolhas_estourar):
-			semaforo.lock()
 			for bolha in bolhas_estourar:
 				bolhas_estourar.erase(bolha)
 				bolha.estourar()
-			semaforo.unlock()
 
 func bolha_estorou(bolha: Bolha):
-	semaforo.lock()
 	dicionario_bolhas.get(bolha.nome_simbolo).erase(bolha)
-	semaforo.unlock()
 	
 	bolha.estourou.disconnect(bolha_estorou)
