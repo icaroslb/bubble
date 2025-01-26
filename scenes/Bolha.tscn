@@ -1,11 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://imqsadolpg8h"]
+[gd_scene load_steps=8 format=3 uid="uid://imqsadolpg8h"]
 
 [ext_resource type="Script" path="res://scripts/Bolha.gd" id="1_et18k"]
 [ext_resource type="Texture2D" uid="uid://goxdf0w0vtge" path="res://sprites/bolha_map.png" id="1_i4t6h"]
-[ext_resource type="Texture2D" uid="uid://dmu260jhitl0h" path="res://sprites/simbolos/Simbolos_o.png" id="1_qlcum"]
-[ext_resource type="Texture2D" uid="uid://yeyeqj2dtw34" path="res://sprites/simbolos/Simbolos_v.png" id="2_dnah5"]
-[ext_resource type="Texture2D" uid="uid://rbkg1uvnh47h" path="res://sprites/simbolos/Simbolos_w.png" id="3_cxhtb"]
-[ext_resource type="Texture2D" uid="uid://c15w4tv7r4xgu" path="res://sprites/simbolos/Simbolos_redondo.png" id="5_1w5ub"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_huksa"]
 atlas = ExtResource("1_i4t6h")
@@ -45,7 +41,6 @@ animations = [{
 
 [node name="Bolha" type="Node2D" node_paths=PackedStringArray("simbolo", "animacao")]
 script = ExtResource("1_et18k")
-sprites_simbolos = Array[CompressedTexture2D]([ExtResource("2_dnah5"), ExtResource("3_cxhtb"), ExtResource("1_qlcum"), ExtResource("5_1w5ub")])
 simbolo = NodePath("Sprite2D")
 animacao = NodePath("AnimatedSprite2D")
 

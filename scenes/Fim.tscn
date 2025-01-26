@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://cuuw4i64xmluw"]
+
+[ext_resource type="Script" path="res://scripts/GoTo.gd" id="1_kk1yj"]
+
+[node name="Fim" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+layout_mode = 0
+offset_left = 536.5
+offset_top = 295.0
+offset_right = 615.5
+offset_bottom = 353.0
+vertical = true
+
+[node name="Label" type="Label" parent="BoxContainer"]
+layout_mode = 2
+text = "End Game"
+
+[node name="Button" type="Button" parent="BoxContainer"]
+layout_mode = 2
+text = "restart"
+script = ExtResource("1_kk1yj")
+
+[connection signal="pressed" from="BoxContainer/Button" to="BoxContainer/Button" method="go_to"]

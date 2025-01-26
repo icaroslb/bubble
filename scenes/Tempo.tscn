@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1f8utxwv16t7"]
+
+[ext_resource type="Script" path="res://scripts/Tempo.gd" id="1_hb8hu"]
+
+[sub_resource type="Gradient" id="Gradient_17osx"]
+offsets = PackedFloat32Array(0.42735, 0.863248)
+colors = PackedColorArray(1, 0, 0, 1, 0, 0, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_eilfp"]
+gradient = SubResource("Gradient_17osx")
+
+[node name="Tempo" type="Node2D" node_paths=PackedStringArray("tempo")]
+visibility_layer = 2
+script = ExtResource("1_hb8hu")
+tempo = NodePath("Polygon2D")
+gradiente = SubResource("GradientTexture1D_eilfp")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 1152, 0, 1152, 10, 0, 10)

@@ -3,28 +3,36 @@
 [ext_resource type="Script" path="res://scripts/Fase.gd" id="1_3fh81"]
 [ext_resource type="PackedScene" uid="uid://l2hh7ks7ls0h" path="res://scenes/Parede.tscn" id="1_cyccb"]
 [ext_resource type="PackedScene" uid="uid://dxwh2nwif7xkt" path="res://scenes/GeradorBolhas.tscn" id="2_qsgtc"]
-[ext_resource type="Script" path="res://addons/gesture_recognizer/scripts/ControlGesture.gd" id="3_q6ibw"]
+[ext_resource type="PackedScene" uid="uid://d1f8utxwv16t7" path="res://scenes/Tempo.tscn" id="4_hb2ti"]
+[ext_resource type="PackedScene" uid="uid://cuuw4i64xmluw" path="res://scenes/Fim.tscn" id="5_ost60"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sptxq"]
-size = Vector2(1152, 648)
-
-[node name="Fase" type="Node2D" node_paths=PackedStringArray("desenhos", "gerador_bolhas", "parede")]
+[node name="Fase" type="Node2D" node_paths=PackedStringArray("texto_pontucao", "fim", "gerador_bolhas", "parede", "tempo")]
 script = ExtResource("1_3fh81")
-desenhos = NodePath("Gesture")
+texto_pontucao = NodePath("Label")
+fim = NodePath("Fim")
 gerador_bolhas = NodePath("GeradorBolhas")
 parede = NodePath("Parede")
+tempo = NodePath("Tempo")
 
 [node name="Parede" parent="." instance=ExtResource("1_cyccb")]
 
 [node name="GeradorBolhas" parent="." instance=ExtResource("2_qsgtc")]
 
-[node name="Gesture" type="Area2D" parent="."]
-script = ExtResource("3_q6ibw")
-ClassifyGesture = true
+[node name="Tempo" parent="." instance=ExtResource("4_hb2ti")]
+top_level = true
+visibility_layer = 1
 
-[node name="Area2D" type="CollisionShape2D" parent="Gesture"]
-position = Vector2(576, 324)
-shape = SubResource("RectangleShape2D_sptxq")
+[node name="Fim" parent="." instance=ExtResource("5_ost60")]
+top_level = true
 
-[connection signal="gesture_name" from="Gesture" to="." method="atualizou_nome"]
-[connection signal="on_draw_exit" from="Gesture" to="." method="classificar"]
+[node name="Label" type="Label" parent="."]
+top_level = true
+offset_right = 57.0
+offset_bottom = 69.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 50
+text = "00"
+
+[connection signal="tempo_zerou" from="Tempo" to="." method="time_end"]

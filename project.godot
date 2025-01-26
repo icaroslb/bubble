@@ -10,17 +10,10 @@ config_version=5
 
 [application]
 
-config/name="Bubble"
+config/name="CleaningBubble"
+run/main_scene="res://scenes/Fase.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
-
-[autoload]
-
-CloudRecognizer="*res://addons/gesture_recognizer/scripts/CloudRecognizer.gd"
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/gesture_recognizer/plugin.cfg")
 
 [input]
 

@@ -8,5 +8,5 @@ poligonos = [NodePath("Polygon2D")]
 qtd_lados_circulo = 20
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-color = Color(0, 0, 0, 1)
+color = Color(0.631373, 0.34902, 0.254902, 1)
 polygon = PackedVector2Array(0, 0, 45, 0, 45, 45, 0, 45)
