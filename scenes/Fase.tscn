@@ -1,34 +1,47 @@
-[gd_scene load_steps=6 format=3 uid="uid://r53ep7rlbpk3"]
+[gd_scene format=3 uid="uid://r53ep7rlbpk3"]
 
-[ext_resource type="Script" path="res://scripts/Fase.gd" id="1_3fh81"]
+[ext_resource type="Script" uid="uid://cwp1i7ira2o3y" path="res://scripts/Fase.gd" id="1_3fh81"]
 [ext_resource type="PackedScene" uid="uid://l2hh7ks7ls0h" path="res://scenes/Parede.tscn" id="1_cyccb"]
 [ext_resource type="PackedScene" uid="uid://dxwh2nwif7xkt" path="res://scenes/GeradorBolhas.tscn" id="2_qsgtc"]
 [ext_resource type="PackedScene" uid="uid://d1f8utxwv16t7" path="res://scenes/Tempo.tscn" id="4_hb2ti"]
 [ext_resource type="PackedScene" uid="uid://cuuw4i64xmluw" path="res://scenes/Fim.tscn" id="5_ost60"]
 
-[node name="Fase" type="Node2D" node_paths=PackedStringArray("texto_pontucao", "fim", "gerador_bolhas", "parede", "tempo")]
+[node name="Fase" type="Node2D" unique_id=1326402268 node_paths=PackedStringArray("texto_pontucao", "fim", "gerador_bolhas", "parede", "tempo")]
 script = ExtResource("1_3fh81")
-texto_pontucao = NodePath("Label")
-fim = NodePath("Fim")
+texto_pontucao = NodePath("Control/Label")
+fim = NodePath("Control/Fim")
 gerador_bolhas = NodePath("GeradorBolhas")
 parede = NodePath("Parede")
 tempo = NodePath("Tempo")
 
-[node name="Parede" parent="." instance=ExtResource("1_cyccb")]
+[node name="Parede" parent="." unique_id=32076743 instance=ExtResource("1_cyccb")]
 
-[node name="GeradorBolhas" parent="." instance=ExtResource("2_qsgtc")]
+[node name="GeradorBolhas" parent="." unique_id=75940108 instance=ExtResource("2_qsgtc")]
 
-[node name="Tempo" parent="." instance=ExtResource("4_hb2ti")]
+[node name="Tempo" parent="." unique_id=665111657 instance=ExtResource("4_hb2ti")]
 top_level = true
 visibility_layer = 1
 
-[node name="Fim" parent="." instance=ExtResource("5_ost60")]
-top_level = true
+[node name="Control" type="Control" parent="." unique_id=247148273]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Label" type="Label" parent="."]
+[node name="Fim" parent="Control" unique_id=432831441 instance=ExtResource("5_ost60")]
 top_level = true
-offset_right = 57.0
+layout_mode = 1
+
+[node name="Label" type="Label" parent="Control" unique_id=1496439259]
+top_level = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -28.5
+offset_right = 28.5
 offset_bottom = 69.0
+grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 10

@@ -15,16 +15,11 @@ const largura_tela: int = 1152
 func _ready() -> void:
 	thread = Thread.new()
 	fim.visible = false
-	centralizar_pontuacao()
 
 func _process(delta: float) -> void:
 	if (is_playing):
 		pontucao += delta
 		texto_pontucao.text = str(floor(pontucao))
-		centralizar_pontuacao()
-
-func centralizar_pontuacao() -> void:
-	texto_pontucao.position.x = 576 - (texto_pontucao.size.x / 2)
 
 func time_end() -> void:
 	is_playing = false
